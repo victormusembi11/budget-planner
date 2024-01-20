@@ -28,6 +28,11 @@ export default function AddExpenseForm() {
         cost: expense.cost,
       },
     });
+
+    setExpense({
+      name: "",
+      cost: 0,
+    });
   }
 
   return (
