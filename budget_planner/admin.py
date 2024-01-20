@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from budget_planner.models import Budget, Expense
+
+admin.site.register(Budget)
+admin.site.register(Expense)
