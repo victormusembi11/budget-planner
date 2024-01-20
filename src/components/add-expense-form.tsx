@@ -2,13 +2,18 @@ import React, { useState, useContext } from "react";
 
 import { AppContext } from "../context/app-context";
 
+interface ExpenseState {
+  name: string;
+  cost: string;
+}
+
 export default function AddExpenseForm() {
   const { dispatch } = useContext(AppContext) as {
     dispatch: React.Dispatch<any>;
   };
-  const [expense, setExpense] = useState({
+  const [expense, setExpense] = useState<ExpenseState>({
     name: "",
-    cost: 0,
+    cost: "",
   });
 
   function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -25,13 +30,13 @@ export default function AddExpenseForm() {
       type: "ADD_EXPENSE",
       payload: {
         name: expense.name,
-        cost: expense.cost,
+        cost: parseInt(expense.cost),
       },
     });
 
     setExpense({
       name: "",
-      cost: 0,
+      cost: "",
     });
   }
 
