@@ -11,10 +11,18 @@ export interface AppState {
   expenses: Expense[];
 }
 
-export type AppAction = { type: string };
+export type AppAction = {
+  payload: any;
+  type: string;
+};
 
 const AppReducer = (state: AppState, action: AppAction) => {
   switch (action.type) {
+    case "ADD_EXPENSE":
+      return {
+        ...state,
+        expenses: [...state.expenses, action.payload],
+      };
     default:
       return state;
   }
