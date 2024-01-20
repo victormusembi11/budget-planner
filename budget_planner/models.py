@@ -5,7 +5,7 @@ class Budget(models.Model):
     budget = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return self.budget
+        return f"$ {str(self.budget)}"
 
 
 class Expense(models.Model):
@@ -14,4 +14,4 @@ class Expense(models.Model):
     cost = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - $ {str(self.cost)}"
