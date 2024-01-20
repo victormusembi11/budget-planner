@@ -1,6 +1,7 @@
 import Budget from "./components/budget";
 import Remaining from "./components/remaining";
 import ExpenseTotal from "./components/expense-total";
+import ExpenseList from "./components/expense-list";
 
 export default function App() {
   return (
@@ -15,6 +16,12 @@ export default function App() {
         </div>
         <div className="col-sm">
           <ExpenseTotal />
+        </div>
+      </div>
+      <h3 className="mt-3">Expenses</h3>
+      <div className="row mt-3">
+        <div className="col-sm">
+          <ExpenseList />
         </div>
       </div>
     </div>
