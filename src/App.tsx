@@ -1,6 +1,6 @@
 import { AppProvider } from "./context/app-context";
 
-import Budget from "./components/budget";
+import BudgetCard from "./components/budget";
 import Remaining from "./components/remaining";
 import ExpenseTotal from "./components/expense-total";
 import ExpenseList from "./components/expense-list";
@@ -13,7 +13,7 @@ export default function App() {
         <h1 className="mt-3">My Budget planner</h1>
         <div className="row mt-3">
           <div className="col-sm">
-            <Budget />
+            <BudgetCard />
           </div>
           <div className="col-sm">
             <Remaining />
