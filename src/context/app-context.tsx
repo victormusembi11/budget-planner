@@ -1,23 +1,20 @@
 import React, { createContext, useReducer, Dispatch } from "react";
 
-export interface Expense {
-  id: number;
-  name: string;
-  cost: number;
-}
-
-export interface AppState {
-  budget: number;
-  expenses: Expense[];
-}
-
-export type AppAction = {
-  payload: any;
-  type: string;
-};
+import { Expense } from "../types/expense";
+import { AppState, AppAction } from "../types/app";
 
 const AppReducer = (state: AppState, action: AppAction) => {
   switch (action.type) {
+    case "SET_BUDGET":
+      return {
+        ...state,
+        budget: action.payload,
+      };
+    case "SET_EXPENSES":
+      return {
+        ...state,
+        expenses: action.payload,
+      };
     case "ADD_EXPENSE":
       return {
         ...state,
@@ -36,12 +33,8 @@ const AppReducer = (state: AppState, action: AppAction) => {
 };
 
 const initialState: AppState = {
-  budget: 2000,
-  expenses: [
-    { id: 12, name: "shopping", cost: 50 },
-    { id: 13, name: "holiday", cost: 400 },
-    { id: 14, name: "car service", cost: 50 },
-  ],
+  budget: 0,
+  expenses: [],
 };
 
 export const AppContext = createContext<
