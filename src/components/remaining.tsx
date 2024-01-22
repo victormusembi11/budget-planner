@@ -1,6 +1,7 @@
 import { useContext } from "react";
 
-import { AppContext, Expense } from "../context/app-context";
+import { AppContext } from "../context/app-context";
+import { Expense } from "../types/expense";
 
 export default function Remaining() {
   const { expenses, budget } = useContext(AppContext) as {
