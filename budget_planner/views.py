@@ -1,6 +1,6 @@
 from django.db import models
 from rest_framework.views import APIView
-from rest_framework.generics import ListCreateAPIView, DestroyAPIView
+from rest_framework.generics import ListCreateAPIView, DestroyAPIView, RetrieveAPIView
 from rest_framework.response import Response
 
 from budget_planner.models import Budget, Expense
@@ -31,6 +31,11 @@ class BudgetStatsAPIView(APIView):
         }
 
         return Response(data)
+
+
+class BudgetRetrieveAPIView(RetrieveAPIView):
+    queryset = Budget.objects.all()
+    serializer_class = BudgetSerializer
 
 
 class ExpenseListCreateAPIView(ListCreateAPIView):
